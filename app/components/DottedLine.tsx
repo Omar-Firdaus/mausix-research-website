@@ -1,0 +1,31 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+type Orientation = 'horizontal' | 'vertical';
+
+type Props = Readonly<{
+  orientation?: Orientation;
+}>;
+
+export function DottedLine({ orientation = 'horizontal' }: Props) {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    setOffset(Math.random() * 1202); // eslint-disable-line react-hooks/set-state-in-effect -- client-only random offset to avoid hydration mismatch
+  }, []);
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute -z-2 z-50 ${orientation} ${orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full'}`}
+      style={{
+        backgroundRepeat: 'repeat',
+        imageRendering: 'pixelated',
+        filter: 'grayscale(100%) brightness(92%) contrast(90%)',
+        backgroundImage: `url('/dotted-line${orientation === 'vertical' ? '-vertical' : ''}.svg')`,
+        backgroundPosition: orientation === 'horizontal' ? `${offset}px 0` : undefined,
+      }}
+    />
+  );
+}
