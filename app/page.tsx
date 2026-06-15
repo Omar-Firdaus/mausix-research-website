@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <section
         id="hero"
-        className="relative h-[min(78vh,720px)] overflow-hidden bg-[linear-gradient(#FCFCFCEE,#FCFCFCEE),url(/noise-smooth.png)] font-mono text-brown-800 bg-container"
+        className="relative h-[min(78vh,720px)] overflow-hidden bg-[linear-gradient(#FEFEFEEE,#FEFEFEEE),url(/noise-smooth.png)] font-mono text-brown-800 bg-container"
         aria-label="Landing"
       >
         <style jsx>{`
@@ -22,7 +22,7 @@ export default function Home() {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(#FCFCFCEE, #FCFCFCEE), url(/noise-smooth.png);
+            background: linear-gradient(#FEFEFEEE, #FEFEFEEE), url(/noise-smooth.png);
             pointer-events: none;
             z-index: -1;
           }

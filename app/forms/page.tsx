@@ -24,7 +24,7 @@ function FormFallback() {
 export default function FormsPage() {
   return (
     <section
-      className="relative min-h-screen overflow-hidden bg-[linear-gradient(#FCFCFCEE,#FCFCFCEE),url(/noise-smooth.png)] font-mono text-brown-800"
+      className="relative min-h-screen overflow-hidden bg-[linear-gradient(#FEFEFEEE,#FEFEFEEE),url(/noise-smooth.png)] font-mono text-brown-800"
       aria-label="Waitlist registration"
     >
       <div className="absolute inset-0 opacity-[0.22] blueprint-grid blueprint-grid-minor pointer-events-none" />

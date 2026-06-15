@@ -3,9 +3,9 @@
 @theme {
 	/* Washed white surface */
 	--color-cream-50: #FFFFFF;
-	--color-cream-100: #FCFCFC;
-	--color-cream-200: #F6F6F5;
-	--color-cream-300: #EDEDEB;
+	--color-cream-100: #FEFEFE;
+	--color-cream-200: #FAFAFA;
+	--color-cream-300: #F3F3F2;
 	--color-cream-400: #B0B0AE;
 	--color-cream-500: #8E8E8C;
 	--color-cream-600: #727270;
@@ -23,7 +23,7 @@
 	--color-yellow-500: #848482;
 	--color-taupe-500: #848482;
 
-	--color-surface-wash: #FCFCFC;
+	--color-surface-wash: #FEFEFE;
 
 	--font-mono: var(--font-mono), monospace;
 	--font-sans: var(--font-sans), sans-serif;
