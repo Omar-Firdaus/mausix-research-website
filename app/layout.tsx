@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { NoiseOverlay } from "./components/NoiseOverlay";
 import { SiteSideRails } from "./components/SiteSideRails";
 import { Footer } from "./components/Footer";
+import { SiteAudio } from "./components/SiteAudio";
 import "./globals.css";
 
 const departureMono = localFont({
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased ${departureMono.variable} ${spaceGrotesk.variable} ${syne.variable} ${libreBarcode128.variable}`}>
+        <SiteAudio />
         <SiteSideRails />
         {children}
         <Footer />
