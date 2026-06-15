@@ -4,6 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface Props {
   inset?: string;
+  hud?: boolean;
+  edges?: 'all' | 'top' | 'bottom';
 }
 
 const KONAMI_SEQUENCE = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
@@ -17,7 +19,9 @@ const StarSVG = () => (
   </svg>
 );
 
-export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
+export default function PageBorder({ inset = '3rem', hud = true, edges = 'all' }: Readonly<Props>) {
+  const showTop = edges === 'all' || edges === 'top';
+  const showBottom = edges === 'all' || edges === 'bottom';
   const [mounted, setMounted] = useState(false);
   const [bottomVisible, setBottomVisible] = useState(false);
   const [activatedArrows, setActivatedArrows] = useState<Set<number>>(new Set());
@@ -65,6 +69,8 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
   });
 
   useEffect(() => {
+    if (!hud) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       const keyMap: Record<string, string> = {
         'ArrowUp': 'up', 'w': 'up', 'W': 'up',
@@ -85,7 +91,7 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('click', handleClick);
     };
-  }, []);
+  }, [hud]);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -313,6 +319,8 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
       `}</style>
 
       {/* Top border */}
+      {showTop && (
+        <>
       <div
         className={`pointer-events-none absolute left-0 right-0 h-px bg-cream-500 z-50 ${mounted ? 'line-top' : ''}`}
         style={{ top: inset, transform: 'translateY(-50%) scaleX(0)' }}
@@ -326,8 +334,12 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
         style={{ left: inset, right: inset, top: inset, transform: 'translateY(-50%)', height: '9px', opacity: 0, filter: 'grayscale(100%) brightness(90%)' }}
         aria-hidden="true"
       />
+        </>
+      )}
 
       {/* Bottom border */}
+      {showBottom && (
+        <>
       <div
         className={`pointer-events-none absolute left-0 right-0 h-px bg-cream-500 z-[60] ${bottomVisible ? 'line-bottom' : ''}`}
         style={{ bottom: inset, transform: 'translateY(50%) scaleX(0)' }}
@@ -341,25 +353,39 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
         style={{ left: inset, right: inset, bottom: inset, transform: 'translateY(50%)', height: '9px', opacity: 0, filter: 'grayscale(100%) brightness(90%)' }}
         aria-hidden="true"
       />
+        </>
+      )}
 
       {/* Corner stars */}
+      {showTop && (
+        <>
       <div className={`pointer-events-none absolute hidden md:block z-50 ${mounted ? 'star-tl' : ''}`} style={{ left: inset, top: inset, transform: 'translate(-50%, calc(-50% + 1px)) scale(0)' }} aria-hidden="true">
         <StarSVG />
       </div>
       <div className={`pointer-events-none absolute hidden md:block z-50 ${mounted ? 'star-tr' : ''}`} style={{ right: inset, top: inset, transform: 'translate(50%, calc(-50% + 1px)) scale(0)' }} aria-hidden="true">
         <StarSVG />
       </div>
+        </>
+      )}
+      {showBottom && (
+        <>
       <div className={`pointer-events-none absolute hidden md:block z-[60] ${bottomVisible ? 'star-bl' : ''}`} style={{ left: inset, bottom: inset, transform: 'translate(-50%, 50%) scale(0)' }} aria-hidden="true">
         <StarSVG />
       </div>
       <div className={`pointer-events-none absolute hidden md:block z-[60] ${bottomVisible ? 'star-br' : ''}`} style={{ right: inset, bottom: inset, transform: 'translate(50%, 50%) scale(0)' }} aria-hidden="true">
         <StarSVG />
       </div>
+        </>
+      )}
 
+      {showTop && (
       <div className={`pointer-events-none absolute md:hidden z-50 ${mounted ? 'star-tc' : ''}`} style={{ left: '50%', top: inset, transform: 'translate(-50%, -50%) scale(0)' }} aria-hidden="true">
         <StarSVG />
       </div>
+      )}
 
+      {hud && showTop && (
+      <>
       {/* Top HUD — arrows on right */}
       <div
         className={`absolute font-mono text-xs text-cream-500 text-9 opacity-80 pointer-events-auto z-50 hidden md:flex ${mounted ? 'mounted' : ''}`}
@@ -401,7 +427,11 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
       >
         <span>STATUS: OPERATIONAL</span>
       </div>
+      </>
+      )}
 
+      {hud && showBottom && (
+      <>
       {/* Bottom HUD */}
       <div className={`absolute font-mono text-xs text-cream-500 text-2 pointer-events-auto z-[60] ${bottomVisible ? 'mounted' : ''}`} style={{ left: `calc(${inset} + 0.75rem)`, bottom: `calc(${inset} + 0.75rem)`, visibility: bottomVisible ? 'visible' : 'hidden' }}>
         <span className="whitespace-pre-line leading-tight">IDENTIFICATION NUMBER REC2PMW0I1lA2GQ3X<br /><img src="/pixel-star.png" alt="" className="inline-block" style={{ height: '0.8rem', imageRendering: 'pixelated' }} /> <strong>SYS</strong> V0.1 <span className="font-barcode">jksdfj</span> 2026-02 - 000000159</span>
@@ -447,6 +477,8 @@ export default function PageBorder({ inset = '3rem' }: Readonly<Props>) {
       >
         <span>75834920tge809hu43w89sherbgt839</span>
       </div>
+      </>
+      )}
     </>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import PageBorder from './components/PageBorder';
 import { ASCIIArt } from './components/ASCIIArt';
 import { WireframeGraphic } from './components/WireframeGraphic';
@@ -12,7 +13,8 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative h-[min(78vh,720px)] overflow-hidden bg-[linear-gradient(#F8F8F6EE,#F8F8F6EE),url(/noise-smooth.png)] font-mono text-brown-800 bg-container"
+        id="hero"
+        className="relative h-[min(78vh,720px)] overflow-hidden bg-[linear-gradient(#FCFCFCEE,#FCFCFCEE),url(/noise-smooth.png)] font-mono text-brown-800 bg-container"
         aria-label="Landing"
       >
         <style jsx>{`
@@ -20,7 +22,7 @@ export default function Home() {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(#F8F8F6EE, #F8F8F6EE), url(/noise-smooth.png);
+            background: linear-gradient(#FCFCFCEE, #FCFCFCEE), url(/noise-smooth.png);
             pointer-events: none;
             z-index: -1;
           }
@@ -74,12 +76,12 @@ export default function Home() {
             <p className="font-display font-bold text-[19px] sm:text-[22px] md:text-[28px] lg:text-[34px] tracking-[-0.02em] text-brown-950 leading-[1.18] md:leading-[1.14]">
               We research the path from neural intent to action in the physical world.
             </p>
-            <a
-              href="mailto:hello@mausix.research?subject=Waitlist%20-%20Mausix%20Research"
+            <Link
+              href="/forms"
               className="inline-flex mt-8 md:mt-10 min-h-12 items-center justify-center border border-brown-800 bg-brown-800 px-7 py-3 font-mono text-xs md:text-sm uppercase tracking-[0.16em] text-cream-50 transition-colors hover:bg-brown-950 hover:border-brown-950"
             >
               Join waitlist
-            </a>
+            </Link>
           </div>
         </div>
       </section>

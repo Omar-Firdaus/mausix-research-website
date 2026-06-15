@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts, formatBlogDate, getBlogPost } from '@/lib/blog-posts';
+import { BlogPostDecorations } from './BlogPostDecorations';
 
 type Props = Readonly<{
   params: Promise<{ slug: string }>;
@@ -33,8 +34,10 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100 text-brown-800">
-      <article className="mx-auto max-w-2xl px-5 md:px-[calc(3rem+2rem)] py-16 md:py-24">
+    <div className="relative min-h-screen overflow-hidden bg-cream-100 text-brown-800">
+      <BlogPostDecorations />
+
+      <article className="relative z-10 mx-auto max-w-2xl px-5 md:px-[calc(3rem+2rem)] py-16 md:py-24">
         <Link
           href="/#blog"
           className="inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-cream-500 hover:text-brown-800 transition-colors mb-10"
@@ -45,11 +48,17 @@ export default async function BlogPostPage({ params }: Props) {
         <header className="border-b border-cream-400 pb-8 mb-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cream-500 mb-4">
             {post.serial} · {formatBlogDate(post.date)} · {post.readTime}
+            <span className="hidden md:inline text-cream-400 mx-2" aria-hidden="true">
+              ·
+            </span>
+            <span className="hidden md:inline font-barcode normal-case tracking-normal text-cream-500/85">
+              {post.slug.replace(/-/g, '').slice(0, 12)}
+            </span>
           </p>
           <h1 className="font-mono text-[24px] md:text-[32px] uppercase tracking-wide text-brown-800 leading-tight">
             {post.title}
           </h1>
-          <p className="mt-4 font-mono text-sm text-brown-800/70 leading-relaxed">
+          <p className="mt-4 font-mono text-sm text-brown-800/80 leading-relaxed">
             {post.excerpt}
           </p>
         </header>

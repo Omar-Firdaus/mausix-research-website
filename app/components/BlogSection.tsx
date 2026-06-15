@@ -1,14 +1,25 @@
 import Link from 'next/link';
 import { blogPosts, formatBlogDate } from '@/lib/blog-posts';
+import { SectionDecorations } from './SectionDecorations';
+import { asciiArt } from '@/lib/ascii-art';
 
 export function BlogSection() {
   return (
     <section
       id="blog"
-      className="relative bg-cream-100 text-brown-800 border-t border-cream-400"
+      className="relative overflow-hidden bg-cream-100 text-brown-800 border-t border-cream-400"
       aria-labelledby="blog-heading"
     >
-      <div className="py-16 md:py-24">
+      <SectionDecorations
+        leftMono="0x00log7f3a"
+        leftBarcode="dispatchlog9284"
+        rightMono="FIELD NOTES"
+        ascii={asciiArt.fish}
+        asciiRailSide="left"
+        asciiVertical="58%"
+      />
+
+      <div className="relative z-10 pt-16 md:pt-24 pb-8 md:pb-10">
         <div className="px-5 md:px-[calc(3rem+2rem)]">
           <header className="mb-10 md:mb-12 text-left">
             <div className="flex items-center gap-3 mb-6">
@@ -25,7 +36,7 @@ export function BlogSection() {
               {">>: Research Blog"}
             </h2>
 
-            <p className="mt-4 font-mono text-xs md:text-sm text-brown-800/70 leading-relaxed max-w-xl text-left">
+            <p className="mt-4 font-mono text-xs md:text-sm text-brown-800/80 leading-relaxed max-w-xl text-left">
               Build notes, integration logs, and write-ups from the Mausix lab.
             </p>
 
@@ -75,7 +86,7 @@ export function BlogSection() {
                       {post.title}
                     </h3>
 
-                    <p className="mt-3 flex-1 font-mono text-xs text-brown-800/70 leading-relaxed">
+                    <p className="mt-3 flex-1 font-mono text-xs text-brown-800/80 leading-relaxed">
                       {post.excerpt}
                     </p>
 
@@ -93,8 +104,14 @@ export function BlogSection() {
         </div>
 
         <div className="px-5 md:px-[calc(3rem+2rem)]">
-          <footer className="mt-10 font-mono text-[10px] uppercase tracking-wider text-cream-500 text-left">
-            Archive updates as systems ship.
+          <footer className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-cream-500 text-left">
+            <span>Archive updates as systems ship.</span>
+            <span className="hidden md:inline text-cream-400" aria-hidden="true">
+              ·
+            </span>
+            <span className="hidden md:inline font-barcode normal-case tracking-normal text-cream-500/85">
+              logarchive77102
+            </span>
           </footer>
         </div>
       </div>

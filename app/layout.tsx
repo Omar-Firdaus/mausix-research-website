@@ -3,6 +3,7 @@ import { Libre_Barcode_128, Space_Grotesk, Syne } from "next/font/google";
 import localFont from "next/font/local";
 import { NoiseOverlay } from "./components/NoiseOverlay";
 import { SiteSideRails } from "./components/SiteSideRails";
+import { ScrollNav } from "./components/ScrollNav";
 import { Footer } from "./components/Footer";
 import "./globals.css";
 
@@ -33,14 +34,18 @@ const libreBarcode128 = Libre_Barcode_128({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#F8F8F6",
+  themeColor: "#FCFCFC",
 };
 
 export const metadata: Metadata = {
   title: "Mausix Research",
   description: "Industrial systems research and engineering.",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
@@ -53,6 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`antialiased ${departureMono.variable} ${spaceGrotesk.variable} ${syne.variable} ${libreBarcode128.variable}`}>
         <SiteSideRails />
+        <ScrollNav />
         {children}
         <Footer />
         <NoiseOverlay />

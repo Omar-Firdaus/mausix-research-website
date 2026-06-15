@@ -26,7 +26,7 @@ export function WireframeGraphic() {
         <img
           src="/openarm-wireframe.png"
           alt=""
-          className="relative z-10 block w-auto h-[min(46vh,480px)] max-w-[min(52vw,680px)] object-contain object-right-bottom opacity-[0.42]"
+          className="wireframe-robot-idle relative z-10 block w-auto h-[min(46vh,480px)] max-w-[min(52vw,680px)] object-contain object-right-bottom"
           style={{
             filter: 'invert(1) grayscale(1) contrast(1.2)',
           }}

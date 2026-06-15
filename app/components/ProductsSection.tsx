@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { products } from '@/lib/products';
 import { ASCIIArt } from './ASCIIArt';
+import { SectionDecorations } from './SectionDecorations';
 import { asciiArt } from '@/lib/ascii-art';
 
 function ProductSchematic({ label }: Readonly<{ label: string }>) {
@@ -48,10 +50,16 @@ export function ProductsSection() {
   return (
     <section
       id="systems"
-      className="relative bg-cream-100 text-brown-800 border-t border-cream-400"
+      className="relative overflow-hidden bg-cream-100 text-brown-800 border-t border-cream-400"
       aria-labelledby="systems-heading"
     >
-      <div className="py-16 md:py-24">
+      <SectionDecorations
+        leftMono="0x4a8f2c19"
+        leftBarcode="pltfmstack8392hf"
+        rightMono="BENCH BUS ONLINE"
+      />
+
+      <div className="relative z-10 pt-16 md:pt-24 pb-8 md:pb-10">
         <div className="px-5 md:px-[calc(3rem+2rem)]">
           <header className="relative mb-10 md:mb-12 text-left">
             <div
@@ -76,7 +84,7 @@ export function ProductsSection() {
               {">>: Platform Stack"}
             </h2>
 
-            <p className="mt-4 font-mono text-xs md:text-sm text-brown-800/70 leading-relaxed max-w-xl text-left">
+            <p className="mt-4 font-mono text-xs md:text-sm text-brown-800/80 leading-relaxed max-w-xl text-left">
               Current hardware and interface programs under active development at Mausix Research.
             </p>
 
@@ -140,7 +148,7 @@ export function ProductsSection() {
                       {product.name}
                     </h3>
 
-                    <p className="mt-3 flex-1 font-mono text-xs text-brown-800/70 leading-relaxed">
+                    <p className="mt-3 flex-1 font-mono text-xs text-brown-800/80 leading-relaxed">
                       {product.description}
                     </p>
 
@@ -151,12 +159,12 @@ export function ProductsSection() {
                       >
                         Explore
                       </a>
-                      <a
-                        href={`mailto:hello@mausix.research?subject=${encodeURIComponent(`Waitlist - ${product.name}`)}`}
+                      <Link
+                        href={`/forms?product=${product.id}`}
                         className="inline-flex min-h-11 flex-1 items-center justify-center border border-brown-800 bg-brown-800 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-cream-50 transition-colors hover:bg-brown-950 hover:border-brown-950"
                       >
                         Join waitlist
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="mt-6 pt-4 border-t border-cream-400 flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.16em]">
@@ -171,8 +179,14 @@ export function ProductsSection() {
         </div>
 
         <div className="px-5 md:px-[calc(3rem+2rem)]">
-          <footer className="mt-10 font-mono text-[10px] uppercase tracking-wider text-cream-500 text-left">
-            Specs subject to revision as systems ship.
+          <footer className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-cream-500 text-left">
+            <span>Specs subject to revision as systems ship.</span>
+            <span className="hidden md:inline text-cream-400" aria-hidden="true">
+              ·
+            </span>
+            <span className="hidden md:inline font-barcode normal-case tracking-normal text-cream-500/85">
+              syspltfm0048219
+            </span>
           </footer>
         </div>
       </div>
