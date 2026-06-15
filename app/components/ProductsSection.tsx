@@ -63,7 +63,7 @@ export function ProductsSection() {
         <div className="px-5 md:px-[calc(3rem+2rem)]">
           <header className="relative mb-10 md:mb-12 text-left">
             <div
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 items-center justify-end pointer-events-none select-none pr-2 lg:pr-6"
+              className="hidden md:flex absolute right-0 top-[38%] -translate-y-1/2 items-center justify-end pointer-events-none select-none pr-2 lg:pr-6"
               aria-hidden="true"
             >
               <ASCIIArt art={asciiArt.donut} inline />
