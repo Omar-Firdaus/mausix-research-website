@@ -5,8 +5,8 @@ export function WireframeGraphic() {
     <div
       className="absolute pointer-events-none hidden md:block z-10"
       style={{
-        right: 'calc(3rem + 2rem)',
-        top: '3rem',
+        right: 'calc(3rem + 7rem)',
+        bottom: '3rem',
       }}
       aria-hidden="true"
     >
@@ -15,7 +15,7 @@ export function WireframeGraphic() {
           className="absolute z-30 font-mono text-xs uppercase tracking-[0.22em] text-brown-800/75 whitespace-nowrap"
           style={{
             right: '100%',
-            top: '48%',
+            top: '62%',
             marginRight: '-9rem',
             transform: 'translateY(-50%) rotate(-90deg)',
             transformOrigin: 'center center',
@@ -26,7 +26,7 @@ export function WireframeGraphic() {
         <img
           src="/openarm-wireframe.png"
           alt=""
-          className="wireframe-robot-idle relative z-10 block w-auto h-[min(42vh,440px)] max-w-[min(48vw,620px)] object-contain object-right-top"
+          className="wireframe-robot-idle relative z-10 block w-auto h-[min(46vh,480px)] max-w-[min(52vw,680px)] object-contain object-right-bottom"
           style={{
             filter: 'invert(1) grayscale(1) contrast(1.2)',
           }}
