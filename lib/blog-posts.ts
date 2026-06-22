@@ -5,44 +5,24 @@ export type BlogPost = {
   date: string;
   serial: string;
   readTime: string;
+  paragraphs: string[];
 };
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'open-arm-torque-calibration',
-    title: 'Open-Arm Torque Calibration Under Load',
+    slug: 'mausix-glass-beta',
+    title: 'Mausix Glass Enters Beta',
     excerpt:
-      'Field notes on bench-testing shoulder actuators for repeatable torque curves when the frame is already under partial payload.',
-    date: '2026-05-28',
-    serial: 'LOG-0041',
-    readTime: '6 min',
-  },
-  {
-    slug: 'mausix-h1-bringup',
-    title: 'MAUSIX-H1 Bring-Up Sequence',
-    excerpt:
-      'The first power-on checklist for the H1 torso stack — bus enumeration, encoder sanity checks, and safe idle posture.',
-    date: '2026-05-14',
-    serial: 'LOG-0038',
-    readTime: '8 min',
-  },
-  {
-    slug: 'industrial-ui-for-lab-tools',
-    title: 'Industrial UI Patterns for Lab Tools',
-    excerpt:
-      'Why we borrow console readouts and serial labeling for internal dashboards instead of default SaaS chrome.',
-    date: '2026-04-30',
-    serial: 'LOG-0034',
-    readTime: '5 min',
-  },
-  {
-    slug: 'wireframe-as-assembly-language',
-    title: 'Wireframe as Assembly Language',
-    excerpt:
-      'Using sparse line drawings as the shared reference between mechanical, firmware, and ops during early integration.',
-    date: '2026-04-12',
-    serial: 'LOG-0029',
-    readTime: '4 min',
+      'Mausix Glass — neural smart glasses with binocular eye tracking — is opening a limited beta for lab partners and early operators.',
+    date: '2026-06-15',
+    serial: 'LOG-0001',
+    readTime: '3 min',
+    paragraphs: [
+      'Mausix Research is opening a limited beta for Mausix Glass, our neural smart glasses with binocular eye tracking built for physical-system research on the bench.',
+      'The beta stack pairs operator-facing telemetry, live system state, and a console-style readout surface with embedded eye-tracking hardware. The goal is a single wearable channel between what you are looking at in the lab and what your instrumentation stack reports back.',
+      'Beta units are intended for partners running repeated bring-up sessions, hardware-in-the-loop tests, and early neural-interface experiments. We are prioritizing teams who can commit weekly feedback and tolerate fast firmware revisions.',
+      'If you want access, join the waitlist and select Mausix Glass. We will reach out as cohorts open with bench requirements, shipping windows, and onboarding docs.',
+    ],
   },
 ];
 

@@ -1,4 +1,5 @@
 import { isValidWaitlistInterest } from '@/lib/waitlist';
+import { sendWaitlistNotification } from '@/lib/send-waitlist-email';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,8 +42,18 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Select a valid program interest.' }, { status: 400 });
   }
 
-  // Placeholder until a persistence or email provider is wired up.
-  console.info('[waitlist]', { name, email, interest, notes, at: new Date().toISOString() });
+  try {
+    await sendWaitlistNotification({ name, email, interest, notes });
+  } catch (error) {
+    console.error('[waitlist] email delivery failed', error);
+
+    const message =
+      error instanceof Error && error.message === 'RESEND_API_KEY is not configured.'
+        ? 'Waitlist email is not configured on the server.'
+        : 'Could not deliver your registration. Try again later.';
+
+    return Response.json({ error: message }, { status: 503 });
+  }
 
   return Response.json({ ok: true });
 }

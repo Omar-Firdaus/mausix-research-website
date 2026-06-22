@@ -64,16 +64,18 @@ export default async function BlogPostPage({ params }: Props) {
         </header>
 
         <div className="space-y-6 font-mono text-sm leading-relaxed text-brown-800/85">
-          <p>
-            This entry is part of the Mausix public research log. Full write-up
-            coming soon — the excerpt above captures the working summary from
-            the lab notebook.
-          </p>
-          <p>
-            For questions or collaboration, reach out via the main site contact
-            channels. Reference serial <span className="text-brown-800">{post.serial}</span>{' '}
-            when citing this note.
-          </p>
+          {post.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <div className="mt-10 pt-8 border-t border-cream-400">
+          <Link
+            href="/forms?product=mausix-glass"
+            className="inline-flex min-h-12 items-center justify-center border border-brown-800 bg-brown-800 px-7 py-3 font-mono text-xs uppercase tracking-[0.16em] text-cream-50 transition-colors hover:bg-brown-950 hover:border-brown-950"
+          >
+            Join Mausix Glass waitlist
+          </Link>
         </div>
       </article>
     </div>

@@ -19,10 +19,10 @@ export const products: Product[] = [
     name: 'Mausix Glass',
     serial: 'SYS-GL-001',
     description:
-      'Operator-facing telemetry surface for lab instrumentation — serial readouts, live state, and console UI built for embedded systems on the bench.',
+      'Neural smart glasses with binocular eye tracking — operator-facing telemetry, live state, and console UI for embedded systems on the bench.',
     category: 'Interface',
     status: 'In development',
-    exploreHref: '#',
+    exploreHref: '/blog/mausix-glass-beta',
     image: {
       src: '/mausix-glass.png',
       alt: 'Mausix Glass wireframe',
@@ -34,10 +34,10 @@ export const products: Product[] = [
     name: 'Mausix-H1',
     serial: 'SYS-H1-001',
     description:
-      'Open-arm torso assembly for actuator integration — torque mapping, encoder bring-up, and repeatable idle posture under partial payload.',
+      'Open-arm torso — torque mapping, encoder bring-up, and repeatable idle posture under partial payload.',
     category: 'Robotics',
     status: 'Active bench',
-    exploreHref: '/blog/mausix-h1-bringup',
+    exploreHref: '/forms?product=mausix-h1',
     image: {
       src: '/mausix-h1-assembly.png',
       alt: 'Mausix-H1 main assembly wireframe',

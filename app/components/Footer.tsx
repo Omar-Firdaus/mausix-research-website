@@ -53,12 +53,12 @@ export function Footer() {
           </p>
 
           <p className="text-xs text-brown-800/80 leading-relaxed">
-            Industrial systems research and engineering.
+            Physical system research and engineering.
           </p>
 
           <nav className="flex flex-wrap items-center gap-x-2 gap-y-2 text-xs text-brown-800">
             <a
-              href="mailto:hello@mausix.research"
+              href="mailto:omar.firdaus101@gmail.com"
               className="underline underline-offset-4 decoration-cream-400 hover:bg-orange-500 hover:text-cream-50 hover:no-underline transition-colors"
             >
               Contact
