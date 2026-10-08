@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Libre_Barcode_128, Space_Grotesk, Syne } from "next/font/google";
 import localFont from "next/font/local";
-import { NoiseOverlay } from "./components/NoiseOverlay";
 import { SiteSideRails } from "./components/SiteSideRails";
 import { ScrollNav } from "./components/ScrollNav";
 import { Footer } from "./components/Footer";
@@ -61,7 +60,6 @@ export default function RootLayout({
         <ScrollNav />
         {children}
         <Footer />
-        <NoiseOverlay />
       </body>
     </html>
   );
