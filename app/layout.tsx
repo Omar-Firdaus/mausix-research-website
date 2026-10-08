@@ -34,7 +34,7 @@ const libreBarcode128 = Libre_Barcode_128({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FEFEFE",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import PageBorder from './components/PageBorder';
 import { ASCIIArt } from './components/ASCIIArt';
-import { WireframeGraphic } from './components/WireframeGraphic';
 import { BlogSection } from './components/BlogSection';
 import { ProductsSection } from './components/ProductsSection';
 import { asciiArt } from '@/lib/ascii-art';
@@ -14,19 +13,9 @@ export default function Home() {
     <>
       <section
         id="hero"
-        className="relative h-[min(78vh,720px)] overflow-hidden bg-[linear-gradient(#FEFEFEEE,#FEFEFEEE),url(/noise-smooth.png)] font-mono text-brown-800 bg-container"
+        className="relative h-[min(78vh,720px)] overflow-hidden bg-white font-mono text-brown-800"
         aria-label="Landing"
       >
-        <style jsx>{`
-          .bg-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(#FEFEFEEE, #FEFEFEEE), url(/noise-smooth.png);
-            pointer-events: none;
-            z-index: -1;
-          }
-        `}</style>
 
       <ASCIIArt art={asciiArt.hackclub} horizontalPosition={80} verticalOffset="5vh" />
       <ASCIIArt art={asciiArt.earth} horizontalPosition={35} verticalOffset="14vh" />
@@ -37,8 +26,6 @@ export default function Home() {
       <ASCIIArt art={asciiArt.opensauce2} horizontalPosition={18} verticalOffset="68vh" />
 
         <PageBorder />
-
-        <WireframeGraphic />
 
         <div
           className="absolute z-0 inset-x-0 md:left-[3rem] md:right-[3rem]"
@@ -74,7 +61,7 @@ export default function Home() {
               </span>
             </div>
             <p className="font-display font-bold text-[19px] sm:text-[22px] md:text-[28px] lg:text-[34px] tracking-[-0.02em] text-brown-950 leading-[1.18] md:leading-[1.14]">
-              We research the path from neural intent to action in the physical world.
+              We create hardware to power the best.
             </p>
             <Link
               href="/forms"

@@ -3,7 +3,7 @@
 @theme {
 	/* Washed white surface */
 	--color-cream-50: #FFFFFF;
-	--color-cream-100: #FEFEFE;
+	--color-cream-100: #FFFFFF;
 	--color-cream-200: #FAFAFA;
 	--color-cream-300: #F3F3F2;
 	--color-cream-400: #B0B0AE;
@@ -23,7 +23,7 @@
 	--color-yellow-500: #848482;
 	--color-taupe-500: #848482;
 
-	--color-surface-wash: #FEFEFE;
+	--color-surface-wash: #FFFFFF;
 
 	--font-mono: var(--font-mono), monospace;
 	--font-sans: var(--font-sans), sans-serif;
@@ -109,25 +109,4 @@ a:focus-visible {
 
 .blueprint-grid-minor {
 	background-size: 12px 12px;
-}
-
-@keyframes wireframeRobotIdle {
-	0%, 100% {
-		transform: translateY(0);
-		opacity: 0.42;
-	}
-	50% {
-		transform: translateY(-10px);
-		opacity: 0.5;
-	}
-}
-
-.wireframe-robot-idle {
-	animation: wireframeRobotIdle 7s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.wireframe-robot-idle {
-		animation: none;
-	}
 }
